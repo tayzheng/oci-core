@@ -1,6 +1,10 @@
 {
     "workshoptitle": "Get Started with Oracle Cloud Infrastructure Core Services",
     "help": "livelabs-help-oci_us@oracle.com",
+    "include": {
+      "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
+      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md"
+    },
 	"tutorials": [
         {
             "title": "Introduction",
@@ -10,6 +14,11 @@
             "title": "Get Started",
             "description": "Login to Oracle Cloud",
             "filename": "https://livelabs.oracle.com/cdn/common/labs/cloud-login/cloud-login-livelabs2.md"
+        },
+        {
+            "title": "Console Tour",
+            "description": "Get familiar with OCI homepage",
+            "filename": "./../../console-tour/consoletour.md"
         },
         {
             "title": "Lab 1: Generate SSH Keys",
@@ -34,6 +43,11 @@
             "title": "Lab 5: Create an Object Storage",
             "type": "livelabs",
             "filename": "../../../object-storage/object-storage/object-storage.md"
+        },
+        {
+            "title": "Lab 6: Provision an ADB Instance",
+            "type": "freetier",
+            "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
             "title": "Need Help?",
