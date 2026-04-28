@@ -70,7 +70,7 @@ To create a VCN on Oracle Cloud Infrastructure:
 
      Click the **Next** button at the bottom of the screen.
 
-5. Review your settings to be sure they are correct. Click the **Create** button to create the VCN. 
+5. Review your settings to be sure they are correct. Click the **Create** button to create the VCN.
     ![Review CV Configuration](images/review-vcn.png " ")
 
 6. It will take a moment to create the VCN and a progress screen will keep you apprised of the workflow.
