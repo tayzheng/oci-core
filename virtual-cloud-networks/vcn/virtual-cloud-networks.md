@@ -15,16 +15,22 @@ Here is an instructional video, going through the process of making a VCN:
 [](youtube:eOGPej8n_ws)
 
 ### Objectives
+
 In this lab, you will:
+
 - Explore how to create a virtual cloud network
+
 - Explore Public and Private Subnets
+
 - Explore the different gateways: Internet, NAT, Service
+
 - Explore Route Tables
+
 - Explore Security Lists & Network Security Groups
 
 ### Prerequisites
 
-* An Oracle Cloud Account - please view this workshop's LiveLabs landing page to see which environments are supported.
+- An Oracle Cloud Account - please view this workshop's LiveLabs landing page to see which environments are supported.
 
 >**Note:** If you have a **Free Trial** account, when your Free Trial expires, your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available.
 
@@ -32,13 +38,13 @@ In this lab, you will:
 
 ## Task 1: Create Your VCN using the Wizard
 
-<if type="livelabs">
+    <if type="livelabs">
 You are running this workshop in a LiveLabs environment. Our LiveLabs environments use a pre-configured Virtual Cloud Network (VCN), so you will not create a VCN in this workshop. However, you can see how a VCN is created in Oracle Cloud Infrastructure by watching this short video:
 
  [](youtube:lxQYHuvipx8)
  </if>
 
-<if type="freetier">
+    <if type="freetier">
 To create a VCN on Oracle Cloud Infrastructure:
 
 1. On the Oracle Cloud Infrastructure Console Home page, under the **Launch Resources** header, click **Set up a network with a wizard**.
@@ -55,14 +61,14 @@ To create a VCN on Oracle Cloud Infrastructure:
 
 4. Complete the following fields:
 
-    |                  **Field**              |    **Value**  |
+    |**Field**|**Value**|
     |----------------------------------------|:------------:|
-    |VCN Name |OCI\_HOL\_VCN|
-    |Compartment |  Choose the ***Demo*** compartment you created in the ***Identity and Access Management Lab***
+    |VCN Name|OCI\_HOL\_VCN|
+    |Compartment|Choose the ***Demo*** compartment you created in the ***Identity and Access Management Lab***
     |VCN CIDR Block|10.0.0.0/16|
     |Public Subnet CIDR Block|10.0.0.0/24|
     |Private Subnet CIDR Block|10.0.1.0/24|
-    |Use DNS Hostnames In This VCN| Checked|
+    |Use DNS Hostnames In This VCN|Checked|
 
     Your screen should look similar to the following:
 
@@ -102,7 +108,7 @@ Private subnets does not allow public IP assignment to instances. Resources typi
 | Outbound Internet Access | direct access | required NAT Gateway |
 | Security Exposure | higher (internet facing) | lower (isolated, internal only) |
 
-### Creating a Subnet:
+### Creating a Subnet
 
 1. To create subnets, navigate to the Subnet tab for your VCN. Click **Create Subnet**.
     ![Screenshot showing where to find subnets](./images/subnet-homepage.png)
@@ -135,30 +141,29 @@ A Service Gateway in OCI is like a private tunnel from your VCN to Oracle’s cl
 ### Comparing Gateways
 
 | Feature | Internet | NAT | Service |
-| :-------- | :--------: | :--------: | :-------:
+| :-------- | :--------: | :--------: | :-------: |
 | Connectivity Type | public internet access (bi-directional) | outbound-only internet access | private access to OCI services |
 | Public Exposure | exposes resources to the internet | keeps resources private | fully private (no internet exposure) |
 | Public IP Requirement | required | not required | not required |
-| Traffic Direction | ingress + egress | egress only  | egress only to OCI services |
+| Traffic Direction | ingress + egress | egress only | egress only to OCI services |
 | Target Destination | any internet destination | any internet destination | only OCI service endpoints |
 
-### Creating Gateways:
+### Creating Gateways
 
 1. To create Gateways, navigate to the Gateways tab for your VCN. Here, you can create different Gateways to use.
+
     ![Screenshot showing where to find gateways](./images/gateways.png)
 
 2. To create a Service Gateway, click Create Service Gateway. You will need to provide a name, compartment, and Service type for the resource.
+
     ![Screenshot showing how to create a service gateway](./images/creating-SG.png)
 
 3. To create a NAT Gateway, click Create NAT Gateway. You will need to provide a name, compartment, and IP address type for the resource.
+
     ![Screenshot showing how to create a NAT gateway](./images/creating-NAT.png)
 
 4. To create a Internet Gateway, click Create Internet Gateway. You will need to provide a name and compartment for the resource.
     ![Screenshot showing how to create an internet gateway](./images/creating-ig.png)
-
-
-
-
 
 ## Task 4: Route Tables
 
@@ -168,23 +173,21 @@ Route rules determine the exact to send the data. You will need to set up route 
 
 You'll want to make sure that the CIDR does not overlap, otherwise routing gets weird and to make sure the target resource already exists.
 
-### Creating Route Tables and Route Rules:
+### Creating Route Tables and Route Rules
 
 1. To create Route Tables, navigate to the Routing tab for your VCN. Click **Create Route Table**.
     ![Screenshot showing where to find route tables](./images/route-tables.png)
 
-2. You will need to provide details including name and compartment, with the option to add route rules directly. The next steps will highlight how to create route rules after setting up your Route Table. 
+2. You will need to provide details including name and compartment, with the option to add route rules directly. The next steps will highlight how to create route rules after setting up your Route Table.
     ![Screenshot showing how to create a route table](./images/creating-route-table.png)
 
 3. To create Route Tables, navigate to the Route Table you want to create rules for and then go to the Route Rules tab. Click **Add Route Rules**.
+
     ![Screenshot showing where to find route rules](./images/route-rules.png)
 
 4. You will need to provide details including target type, destination CIDR block, target resource compartment, target resource, and a description. You can also add multiple Route Rules during this step.
+
     ![Screenshot showing how to create route rules](./images/creating-route-rule.png)
-
-
-
-
 
 ## Task 5: Security Lists & Network Security Groups
 
@@ -210,9 +213,11 @@ Network Security Groups also control traffic allowed in and out. However, NSGs s
 ### Creating Security Lists and Rules
 
 1. To create a Security List, navigate to the Security tab for your VCN. Click **Create Security List**.
+
     ![Screenshot showing where to find security lists](./images/security-lists.png)
 
 2. You will need to provide information including name, compartment, as well as specifications for ingress and egress rules.
+
     ![Screenshot showing how to create a security list](./images/creating-security-list-1.png)
 For ingress and egress rules, you will need to provide destination type and information, IP protocol, source and destination port range, and a description. You can also enable stateless rules.
     ![Screenshot showing how to create a security list](./images/creating-security-list-2.png)
@@ -220,11 +225,12 @@ For ingress and egress rules, you will need to provide destination type and info
 ### Creating Network Security Groups and Rules
 
 1. To create Network Security Groups, navigate to the Security tab for your VCN. Click **Create Network Security Group**.
+
     ![Screenshot showing where to find network security groups](./images/nsg.png)
 
 2. You will need to provide information including name, compartment details, and NSG rules. For NSG rules, they are similar to Security List rules. You need to indicate the ingress or egress direction, destination type and information, IP protocol, source and destination port range, and a description.  You can also enable stateless rules.
-    ![Screenshot showing how to create a nsg](./images/creating-nsg.png)
 
+    ![Screenshot showing how to create a nsg](./images/creating-nsg.png)
 
 ### Summary
 
