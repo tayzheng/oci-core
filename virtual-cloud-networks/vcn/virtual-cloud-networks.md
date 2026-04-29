@@ -104,7 +104,16 @@ Private subnets does not allow public IP assignment to instances. Resources typi
 
 ### Creating a Subnet:
 
-1.
+1. To create subnets, navigate to the Subnet tab for your VCN. Click **Create Subnet**.
+    ![Screenshot showing where to find subnets](./images/subnet-homepage.png)
+
+2. You will need to provide specifications for your subnet including name, compartment, regional or AD specific, IPv4 CIDR, public or private, DNS details, and optionally, associating security lists or enabling logging.
+    ![Screenshot showing how to create a subnet](./images/creating-subnet-1.png)
+
+    ![Screenshot showing how to create a subnet](./images/creating-subnet-2.png)
+
+Once you've filled out these specifications, your subnet will be created.
+
 
 ## Task 3: Different OCI Gateways: Internet, NAT, Service
 
@@ -135,6 +144,22 @@ A Service Gateway in OCI is like a private tunnel from your VCN to Oracle’s cl
 
 ### Creating Gateways:
 
+1. To create Gateways, navigate to the Gateways tab for your VCN. Here, you can create different Gateways to use.
+    ![Screenshot showing where to find gateways](./images/gateways.png)
+
+2. To create a Service Gateway, click Create Service Gateway. You will need to provide a name, compartment, and Service type for the resource.
+    ![Screenshot showing how to create a service gateway](./images/creating-SG.png)
+
+3. To create a NAT Gateway, click Create NAT Gateway. You will need to provide a name, compartment, and IP address type for the resource.
+    ![Screenshot showing how to create a NAT gateway](./images/creating-NAT.png)
+
+4. To create a Internet Gateway, click Create Internet Gateway. You will need to provide a name and compartment for the resource.
+    ![Screenshot showing how to create an internet gateway](./images/creating-ig.png)
+
+
+
+
+
 ## Task 4: Route Tables
 
 In OCI, a route table is like a set of traffic rules for your cloud network (VCN). It tells your resources (like servers): “If you want to send data somewhere, here’s where to send it.” For example, if you need to send data to the public internet, your route table will specify to send the data to the Internet Gateway. The route table does so through route rules.
@@ -144,6 +169,22 @@ Route rules determine the exact to send the data. You will need to set up route 
 You'll want to make sure that the CIDR does not overlap, otherwise routing gets weird and to make sure the target resource already exists.
 
 ### Creating Route Tables and Route Rules:
+
+1. To create Route Tables, navigate to the Routing tab for your VCN. Click **Create Route Table**.
+    ![Screenshot showing where to find route tables](./images/route-tables.png)
+
+2. You will need to provide details including name and compartment, with the option to add route rules directly. The next steps will highlight how to create route rules after setting up your Route Table. 
+    ![Screenshot showing how to create a route table](./images/creating-route-table.png)
+
+3. To create Route Tables, navigate to the Route Table you want to create rules for and then go to the Route Rules tab. Click **Add Route Rules**.
+    ![Screenshot showing where to find route rules](./images/route-rules.png)
+
+4. You will need to provide details including target type, destination CIDR block, target resource compartment, target resource, and a description. You can also add multiple Route Rules during this step.
+    ![Screenshot showing how to create route rules](./images/creating-route-rule.png)
+
+
+
+
 
 ## Task 5: Security Lists & Network Security Groups
 
@@ -168,15 +209,30 @@ Network Security Groups also control traffic allowed in and out. However, NSGs s
 
 ### Creating Security Lists and Rules
 
+1. To create a Security List, navigate to the Security tab for your VCN. Click **Create Security List**.
+    ![Screenshot showing where to find security lists](./images/security-lists.png)
+
+2. You will need to provide information including name, compartment, as well as specifications for ingress and egress rules.
+    ![Screenshot showing how to create a security list](./images/creating-security-list-1.png)
+For ingress and egress rules, you will need to provide destination type and information, IP protocol, source and destination port range, and a description. You can also enable stateless rules.
+    ![Screenshot showing how to create a security list](./images/creating-security-list-2.png)
+
 ### Creating Network Security Groups and Rules
+
+1. To create Network Security Groups, navigate to the Security tab for your VCN. Click **Create Network Security Group**.
+    ![Screenshot showing where to find network security groups](./images/nsg.png)
+
+2. You will need to provide information including name, compartment details, and NSG rules. For NSG rules, they are similar to Security List rules. You need to indicate the ingress or egress direction, destination type and information, IP protocol, source and destination port range, and a description.  You can also enable stateless rules.
+    ![Screenshot showing how to create a nsg](./images/creating-nsg.png)
+
 
 ### Summary
 
-This VCN will contain all of the other assets that you will create during this set of labs. In real-world situations, you would create multiple VCNs based on their need for access (which ports to open) and who can access them. Both of these concepts are covered in the next lab ***Create a Compute Service***.
+VCns and subnets provide secure and customizable network environments, while route tables control how traffic is being routed in and out of the VCN. Gateways help you establish communication outside of your VCN. To secure your VCN, security lists and network security groups act as the control center, allowing specified traffic into your network. In real-world situations, you would create multiple VCNs based on their need for access (which ports to open) and who can access them. Both of these concepts are covered in the next lab ***Create a Compute Service***.
 
 ## Acknowledgements
 
 - **Author** - Rajeshwari Rai, Prasenjit Sarkar
-- **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager, DB Product Management)
-- **Last Updated By/Date** - Sania Bolla, September 2025
+- **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager, DB Product Management), Wynne Yang
+- **Last Updated By/Date** - Wynne Yang, April 2026
 
