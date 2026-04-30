@@ -20,8 +20,8 @@ In this lab, you will:
 
 ## Task 1: Create Log Group
 
-[](include:service-logs-create-log-group.md)
+[](include:create-log-group.md)
 
 ## Task 2: Enable Network Flow Logs
 
-[](include:service-logs-create-log-group.md)
+[](include:create-log-group.md)
