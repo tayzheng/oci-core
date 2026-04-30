@@ -27,7 +27,7 @@ In this lab, you will:
 
 ## Task 2: Enable Network Flow Logs
 
-[](include:create-log-group.md)
+[](include:enable-network-flow-log.md)
 
 ## Task 3: Export Log Data
 

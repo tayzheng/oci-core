@@ -5,7 +5,7 @@
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
       "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
       "create-log-group.md":"https://raw.githubusercontent.com/enschilling/oci-core/refs/heads/eli-observability/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
-      "enable-network-flow-log.md":"../../../common/building-blocks/tasks/observability/service-logs-enable-network-flow-log.md",
+      "enable-network-flow-log.md":"common/building-blocks/tasks/observability/service-logs-enable-network-flow-log.md",
       "export-log-data.md":"https://github.com/enschilling/oci-core/blob/eli-observability/essentials-of-cloud-observability/export/export.md"
     },
     "variables": ["./variables.json"],
