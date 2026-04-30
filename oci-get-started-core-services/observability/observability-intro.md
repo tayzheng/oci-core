@@ -27,3 +27,7 @@ In this lab, you will:
 [](var:db_display_name)
 
 [](include:create-log-group.md)
+
+## Task 3: Export Log Data
+
+[](include:https://github.com/enschilling/oci-core/blob/eli-observability/essentials-of-cloud-observability/export/export.md)
