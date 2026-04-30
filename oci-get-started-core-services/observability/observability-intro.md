@@ -23,7 +23,7 @@ In this lab, you will:
 
 ## Task 1: Create Log Group
 
-[](include:create-log-group.md)
+[](include:observability-service-logs-create-log-group.mdd)
 
 ## Task 2: Enable Network Flow Logs
 
