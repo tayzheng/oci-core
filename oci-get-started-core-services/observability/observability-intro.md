@@ -24,4 +24,6 @@ In this lab, you will:
 
 ## Task 2: Enable Network Flow Logs
 
+[](var:db_display_name)
+
 [](include:create-log-group.md)
