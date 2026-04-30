@@ -54,6 +54,11 @@
             "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
+            "title": "Lab 8: Intro to Observability and Management",
+            "type": "freetier",
+            "filename": "../../observability/observability-intro.md"
+        },
+        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename": "https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-freetier.md"
