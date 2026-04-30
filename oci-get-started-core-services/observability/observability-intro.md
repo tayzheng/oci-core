@@ -7,6 +7,9 @@ Logs contain critical diagnostic information that tells you how your resources a
 
 Estimated Lab Time: 10 minutes
 
+**Test Variables: ** 
+* DB Display Name: [](var:db_display_name)
+
 ### Objectives
 
 In this lab, you will:
@@ -23,8 +26,6 @@ In this lab, you will:
 [](include:create-log-group.md)
 
 ## Task 2: Enable Network Flow Logs
-
-[](var:db_display_name)
 
 [](include:create-log-group.md)
 
