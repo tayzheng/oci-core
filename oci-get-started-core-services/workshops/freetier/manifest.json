@@ -3,7 +3,9 @@
     "help": "livelabs-help-oci_us@oracle.com",
     "include": {
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
-      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md"
+      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+      "service-logs-create-log-group.md":"/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
+      "service-logs-enable-network-flow-log.md":"/common/building-blocks/tasks/observability/service-logs-enable-network-flow-log.md"
     },
 	"tutorials": [
         {
