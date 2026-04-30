@@ -30,4 +30,4 @@ In this lab, you will:
 
 ## Task 3: Export Log Data
 
-[](include:https://github.com/enschilling/oci-core/blob/eli-observability/essentials-of-cloud-observability/export/export.md)
+[](include:export-log-data.md)
