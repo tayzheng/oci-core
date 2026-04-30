@@ -104,10 +104,10 @@ In this lab, you will:
 
 10. Notice the rest of the icons on the side bar to the left.
 
-    1. **Explorer:** Direct integration with Cloud Shell allows you to read and edit code files stored in the Cloud Shell home directory and have direct access to the 30+ cloud-based tools pre-installed with Cloud Shell. 
-    2. **Search:** Search allows you to search for text across files in your workspace.
-    3. **Source Control:** Git integration that enables you to clone any Git-based repository, track changes made to files, and commit, pull and push code directly from within the Code Editor, allowing you to contribute code and revert code changes with ease.
-    4. **Extensions:** Managed OCI service plug-ins that provide a native, integrated experience for supported OCI services, offering specific functionality and coding workflows for each supported service. For example, the Functions plugin allows developers to edit deploy and invoke functions from within the Code Editor window.
+    - **Explorer (1):** Direct integration with Cloud Shell allows you to read and edit code files stored in the Cloud Shell home directory and have direct access to the 30+ cloud-based tools pre-installed with Cloud Shell. 
+    - **Search (2):** Search allows you to search for text across files in your workspace.
+    - **Source Control (3):** Git integration that enables you to clone any Git-based repository, track changes made to files, and commit, pull and push code directly from within the Code Editor, allowing you to contribute code and revert code changes with ease.
+    - **Extensions (4):** Managed OCI service plug-ins that provide a native, integrated experience for supported OCI services, offering specific functionality and coding workflows for each supported service. For example, the Functions plugin allows developers to edit deploy and invoke functions from within the Code Editor window.
 
         ![code editor](images/code-editor-features.png)
 
