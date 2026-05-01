@@ -21,14 +21,18 @@ In this lab, you will:
 * An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
 * Access to the cloud environment and resources configured in Lab 1 
 
-## Task 1: Create Log Group
+## Task 1: Create Log Group - Full RAW MD link
 
 [](include:observability-service-logs-create-log-group.md)
 
-## Task 2: Enable Network Flow Logs
+## Task 2: RAW MD link with alternate filename
 
-[](include:enable-network-flow-log.md)
+[](include:create-log-group.md)
 
-## Task 3: Export Log Data
+## Task 3: Common root path - no httpd
 
-[](include:export-log-data.md)
+[](include:observability-create-log-group.md)
+
+## Task 4: Github IO version
+
+[](include:observability-io-create-log-group.md)

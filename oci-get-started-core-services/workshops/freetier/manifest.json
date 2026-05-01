@@ -4,8 +4,10 @@
     "include": {
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
       "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
-      "observability-service-logs-create-log-group.md":"/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
-      "export-log-data.md":"https://github.com/enschilling/oci-core/blob/eli-observability/essentials-of-cloud-observability/export/export.md"
+      "observability-service-logs-create-log-group.md":"https://raw.githubusercontent.com/enschilling/oci-core/refs/heads/main/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
+      "create-log-group.md":"https://raw.githubusercontent.com/enschilling/oci-core/refs/heads/main/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
+      "observability-create-log-group.md":"/common/building-blocks/tasks/observability/service-logs-create-log-group.md/",
+      "observability-io-create-log-group.md":"https://enschilling.github.io/oci-core/common/building-blocks/tasks/observability/service-logs-create-log-group.md"
     },
     "variables": ["./variables.json"],
 	"tutorials": [
