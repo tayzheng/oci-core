@@ -33,19 +33,19 @@ In this workshop, you will:
 
 Log groups are logical containers for organizing and managing logs. Logs must always be inside  a log group. You must first create a log group to enable or create logs.  Fortunately, this is a fast and easy activity.
 
-1. In the OCI Management Console, ensure you have selected the same Region as Lab 1.  Navigate to **Logging** --> **Log Groups**
+1. In the OCI Management Console, ensure you have selected the same Region as Lab 1.  Navigate to **Observability & Management** --> **Log Groups**
 
       ![Log Groups](images/log-groups.png)
 
-2. Ensure **Compartment** logservicedemo is selected in the left column.
+2. Ensure **Compartment** Demo is selected in the left column (the compartment you created in Lab 2).
 
-    ![Compartment](images/select-compartment-2.png)
+    ![Compartment](images/select-compartment.png)
    
 3. Click the **Create Log Group** button.
 
     ![Create Log Group](images/create-log-group.png)
 
-4. On the **Create Log Group** dialog page ensure **Compartment** logservicedemo is specified.  **NAME** your Log Group logservicelg, provide a brief **DESCRIPTION**, and then click the **Create** button.
+4. On the **Create Log Group** dialog page ensure **Compartment** Demo is specified.  **NAME** your Log Group LogServiceLg, provide a brief **DESCRIPTION**, and then click the **Create** button.
 
     ![Create Log Group](images/create-log-group-wizard.png)
 
@@ -54,140 +54,157 @@ Log groups are logical containers for organizing and managing logs. Logs must al
 
 ## Task 2: Enable Network Flow Log
 
-Many core cloud infrastructure services have built-in logging capabilities.  Now that you have created a Log Group in Step 1, let's select one of our core services and enable logging.  In this step, you will enable logging on the **Virtual Cloud Network** created in Lab 1.
+Many core cloud infrastructure services have built-in logging capabilities.  Now that you have created a Log Group in Step 1, let's select one of our core services and enable logging.  In this step, you will enable logging on the **Virtual Cloud Network** created in Lab 3.
 
-1.  Select **Logs** in the left column of the OCI Management Console.  This can be found in the **Logging** service in case you no longer have that page open. 
+1. To begin, you must first create a Capture Filter to define how much of the network traffic will be evaluated.  Use the navigation menut to access **Networking** -> **Capture filters**
+
+    ![Navigate - networking to capture filters](images/nav-networking-capture-filters.png)
+
+2. Click the **`[Create capture filter]`** button to open the dialog window.
+
+    ![Create capture filter button](images/create-capture-filter-button.png)
+
+2. In the dialog window, enter or select the following values:
+
+    - Provide a **Name** such as `Flowlogs-CaptureFilter`
+    - Ensure **Compartment** Demo is selected
+    - Ensure **Flow log capture filter** option is selected
+    - Select a **Sampling rate** of 20%
+    - For the **Source IPv4 CIDR** in Rule 1 enter `0.0.0.0/0`
+    - For the **Destination IPv4 CIDR** in Rule 1 enter `0.0.0.0/0`
+
+3. Click **`[Create capture filter]`**
+
+    ![Create capture filter dialog](images/create-capture-filter-dialog.png)
+
+4.  Once the new Capture Filter status shows **Avaialble**, click the **Flow logs** navigation link in the left-hand Nav menu.
+
+    ![Network command center - capture filters](images/nav-networking-flow-logs.png)
+
+5. Click **`[Enable flow logs]`**
+
+    ![Flow logs dashboard - with button](images/flow-logs-dashboard.png)
+
+6. Fill in the requisite values:
+
+    - Provide a **File name prefix**:
+        ```<copy>logservicedemo</copy>```
+
+    - Ensure **Log group** matches `LogServiceLg` that was created earlier
+    - Ensure that **Capture Filter** value matches the Capture Filter created earlier `Flowlogs-Capture-Filter`
+
+7. Click **`[Add enablement points]`**
+
+8. In the pop-up dialog, click **`[Add enablement point]`** within the **Virtual cloud network** section, then select your Lab 3 VCN from the drop-down list.  Click the **`[Add enablement points]`** button in the lower right corner to continue.
+
+    ![Add enablement point dialog window](images/add-enablement-points.png)
+
+9. Click **`[Enable flow logs]`** to complete the setup and wait until **Status** becomes `Active`.
+
+
+10. Now, use the navigation menu to return to **Observability & Management** -> **Logs**
 
     ![Logs](images/logs.png)
 
-2.  Select **Enable Service Log** to open the Enable Resource Dialog page.  
 
-    ![Service Logs](images/enable-service-log.png)
+11. You should now see the **logservicedemo_1** resource that was just created. Click on the resource name to view details.
 
-3.  On the **Enable Resource Log** page:
-    - Ensure **Compartment** logservicedemo is listed
-    - Choose **Virtual Cloud Network (subnets)** from the **Service** drop-down
-    - Select **RESOURCE** logservicesub01
-    - In the **Configure Log** section **Name** your log as shown in the image
-    - Click **Enable Log** to complete the task
+    ![Logs - dashboard](images/dash-logs-ready.png)
 
-    ![Service Logs](images/enable-service-log-wizard.png)
+12. Click the **Explore log** tab.
 
-4.  Review the Log details page.  It may take a couple minutes for the service to complete configurations.
+    ![Explore log tab for logservicedemo_1](images/explore-logs-tab.png)
 
-    ![Service Logs](images/explore-service-log-1.png)
-
-5.  You may explore log content directly from the Log properties page. Note: Full log search activities are covered in a later Lab section.
-
-    ![Service Logs](images/explore-service-log-2.png)
+    >NOTE! It might take a few minutes to populate the log data. If it doesn't load right away, you may continue forward as we'll explore full log search activities in a later section.
 
 ## Task 3: Select Logs to be included in Search
 
-1. In the OCI Management Console, ensure you have selected the same Region as the previous Labs.  Navigate to **Logging** --> **Search**.
+1. Use the navigation menu to navigate to **Logging** --> **Search**.
 
     ![Log Search](images/log-search.png)
 
 2. Click inside the **SELECT LOGS TO SEARCH** box to bring up the pop-up search panel.  
 
-3.  Select logservicedemo **COMPARTMENT**, logservicelg **Log Groups** and both the custom and service log listed in the **LOGS** section.
+3.  Select Demo **COMPARTMENT**, LogServiceLg **Log Groups** and both the custom and service log listed in the **LOGS** section.
 
    This may take some time and a few extra clicks to become familiar with the log selection process.  In the end, your selection screen should look similar to the image below.  As long as **customlog01** and **servicelog01** are showing in the **SELECT LOGS TO SEARCH** box you're good to proceed.
 
-
-  ![Log Search](images/select-logs.png)
-
-  ![Log Search](images/select-logs-1.png)
+    ![Log Search](images/select-logs-to-search.png)
 
 4.  Click **Continue** to close the panel and return to the search landing page.
 
-## Task 4: Search Content and Explore Logs
+5.  On the log search page, click the **Search** button and review the results in the panel below.  
 
-1.  On the log search page, click the **Search** button and review the results in the panel below.  
+6.  In the **FILTER BY FIELD OR TEXT SEARCH** box enter candidate search keywords such as "ERROR" or "REJECT".  View the results in the results panel.  
 
-2.  In the **FILTER BY FIELD OR TEXT SEARCH** box enter candidate search keywords such as "ERROR" or "REJECT".  View the results in the results panel.  
+    ![Log Search](images/explore-logs-combined.png)
 
-  ![Log Search](images/explore-logs-combined.png)
+7.  Click the **Search** button an review the filtered results.
 
-3.  Click the **Search** button an review the filtered results.
-
-4.  **Optional**: Update the search parameters to filter the results.
+    ![Log search dashboard](images/dash-log-search.png)
 
 
-## Task 5: Create Object Storage Archive Bucket
+## Task 4: Configure Automated Export
 
-The target bucket must already exist prior to creating the service connector, so let's create a bucket now.
+In this step you will create a **Service Connector** to export Log content to the bucket you created in Lab 6.
 
-1.  In the OCI Management Console, ensure you have selected the same region where you have created the resources from the previous Labs in this workshop.  Navigate to the Object Storage service.
+1. In the OCI Management Console, navigate to **Analytics & AI** --> **Connector Hub**.
 
-    ![Object Storage](images/object-storage.png)
-
-2.  In the Object Storage service landing page, ensure your scope is set to **Compartment** logservicedemo.
-    ![Object Storage](images/scope-compartment.png)
-
-3.  Click on **Create Bucket** to bring up the create bucket panel.
-    ![Object Storage](images/create-bucket.png)
-
-4.  In the **Create Bucket** panel, enter **BUCKET NAME** logarchivedemo, **STORAGE TIER** Standard, leave **OBJECT EVENTS** and **OBJECT VERSIONING** deselected, and ensure **ENCRYPTION** is configured to ENCRYPT USING ORACLE MANAGED KEYS as shown in the following image.
-    ![Object Storage](images/create-bucket-wizard.png)
-
-5.  Click **Create Bucket** to complete the new bucket creation task, and you're ready to move on to the next step.
-
-## Task 6: Configure Automated Export
-
-In this step you will create a **Service Connector** to export Log content to the bucket you created in Step 1.
-
-1. In the OCI Management Console, navigate to **Logging** --> **Service Connectors**.
-
-    ![Service Connector](images/service-connector.png)
+    ![Navigate - Connector hub](images/nav-connector-hub.png)
 
    
-2. Ensure **Compartment** logservicedemo is selected in the left column.  If this is the first time you have visited this page the **Service Connector** list will be empty.  Open the new connector panel by selecting **Create Connector**.
+2. Ensure **Compartment** Demno is selected in the left column.  If this is the first time you have visited this page the **connectors** list will be empty.  Open the new connector panel by selecting **Create connector**.
     
     ![Service Connector](images/create-service-connector.png)
 
-3. In the **Create Service Connector** panel, enter logdemoconnect for **CONNECTOR NAME**, add a brief description, and double-check that logservicedemo is specified for **RESOURCE COMPARTMENT**.
+3. In the **Create connector** panel, enter `logdemoconnect` for **CONNECTOR NAME**, add a brief description, and double-check that Demo is specified for **RESOURCE COMPARTMENT**.
+
+4. In the **Configure Service Connector** section:
+
+    - select **Logging** for **SOURCE**
+    - select **Object Storage** for **TARGET**
+    - Choose **LogserviceLg** for **LOG GROUP**
+    - choose **logservicedemo_1** for **LOGS**.  
+    
+    >Note: In this Lab we will not configure more advanced filtering and processing parameters.  Please refer to the **Learn More** section for links on getting started with advanced configurations.
     
     ![Service Connector](images/create-service-connector-1.png)
 
-4. In the **Configure Service Connector** section, select **Logging** for **SOURCE** and **Object Storage** for **TARGET**.  Choose **Logservicelg** for **LOG GROUP**  and **customlog01** for **LOGS**.  In this Lab we will not configure more advanced filtering and processing parameters.  Please refer to the **Learn More** section for links on getting started with advanced configurations.
-    
-    ![Service Connector](images/create-service-connector-2.png)
-
-5. In the **Configure target connection** section, select the **BUCKET** you created in Step 1: logarchivedemo.    
-    
-    ![Service Connector](images/create-service-connector-3.png)
+5. In the **Configure target connection** section, select the **BUCKET** you created in Lab 6: `bucket-demo`.
 
 6. The Connector Service provides an option to automatically create the security policy (permissions) required for this connector job to export data.  Click **Create** in the box as shown in the image below.  **Note**: depending on your account type and previous setup steps, these permissions may have already been implicitly created.  In that case this option will not be presented and it's safe to proceed to the next item.
     
-    ![Service Connector](images/create-service-connector-4.png)
-
-   The box confirms the policy creation and displays the policy name for future reference.
+    - The box confirms the policy creation and displays the policy name for future reference.
     
     ![Service Connector](images/create-service-connector-5.png)
 
-7. Complete the connector creation task by clicking **Create**
+7. Click the **`[Create]`** button in the lower left corner to create the connector.
+    
+    ![Service Connector](images/create-service-connector-2.png)
 
-    ![Service Connector](images/create-service-connector-6.png)
-
-   The panel will close and then show the new connector properties page.  Here you may view/edit configurations and also verify the status of the data processing.  Log content is processed periodically in batches.  It may take a few minutes for activity and metrics to show in the console.
+    >NOTE: The panel will close and then show the new connector properties page.  Here you may view/edit configurations and also verify the status of the data processing.  Log content is processed periodically in batches.  It may take a few minutes for activity and metrics to show in the console.
 
     ![Service Connector](images/create-service-connector-7.png)
 
    
-## Task 7: [Optional] View Log Archive Content
+## Task 5: [Optional] View Log Archive Content
 
 Log content archived to Object Storage is aggregated via batches (default every 7 minutes) and stored in .gz format. Timestamps allow easy retrieval by time range(s).  In this step you will locate archived content and optionally download/extract/view to validate the storage integrity.
 
-1. Navigate to **Object Storage**, select **Compartment** logservicedemo to locate the bucket created in Step 1.
+1. Use the navigation menu to navigate to **Storage** -> **Buckets**, select **Compartment** Demo to locate the bucket created in Lab 6.
 
-    ![Log Archive](images/bucket.png)
+    ![Navigate to object storage - buckets](images/nav-object-storage-buckets.png)
 
-2. Click on the bucket name **logarchivedemo** to open the properties page.  Expand the bucket contents to view archive content in timestamped gzip format.  **Note: it may take a few minutes after creating the connector for initial content to land in the bucket**. 
+2. Click on the bucket name **bucket-demo** to open the properties page. Click the bucket name.
 
-    ![Log Archive](images/log-archive.png)
+    ![Object storage - buckets dashboard](images/buckets-dashboard.png)
+
+3.   Click the **Objects** tab to view archive content in timestamped gzip format.
+
+    ![Object storage - bucket contents](images/log-archive.png)
 
 
-3. Select a file for download, extraction and viewing. The download option may be found by clicking the vertical dots in the far righthand column.  
+4. Select a file for download, extraction and viewing. The download option may be found by clicking the vertical dots in the far righthand column.  
 
     ![Log Archive](images/log-archive-download.png)
 
