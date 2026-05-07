@@ -3,8 +3,13 @@
     "help": "livelabs-help-oci_us@oracle.com",
     "include": {
       "adb-provision-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/provision-body.md",
-      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md"
+      "adb-goto-service-body.md":"https://oracle-livelabs.github.io/common/building-blocks/tasks/adb/goto-service-body.md",
+      "observability-service-logs-create-log-group.md":"https://raw.githubusercontent.com/enschilling/oci-core/refs/heads/main/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
+      "create-log-group.md":"https://raw.githubusercontent.com/enschilling/oci-core/refs/heads/main/common/building-blocks/tasks/observability/service-logs-create-log-group.md",
+      "observability-create-log-group.md":"/common/building-blocks/tasks/observability/service-logs-create-log-group.md/",
+      "observability-io-create-log-group.md":"https://enschilling.github.io/oci-core/common/building-blocks/tasks/observability/service-logs-create-log-group.md"
     },
+    "variables": ["./variables.json"],
 	"tutorials": [
         {
             "title": "Introduction",
@@ -52,6 +57,11 @@
             "title": "Lab 7: Provision an ADB Instance",
             "type": "freetier",
             "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
+        },
+        {
+            "title": "Lab 8: Intro to Observability and Management",
+            "type": "freetier",
+            "filename": "../../observability/observability-intro.md"
         },
         {
             "title": "Need Help?",
