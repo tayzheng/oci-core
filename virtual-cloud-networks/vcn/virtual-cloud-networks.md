@@ -39,7 +39,7 @@ In this lab, you will:
 ## Task 1: Create Your VCN using the Wizard
 
     <if type="livelabs">
-You are running this workshop in a LiveLabs environment. Our LiveLabs environments use a pre-configured Virtual Cloud Network (VCN), so you will not create a VCN in this workshop. However, you can see how a VCN is created in Oracle Cloud Infrastructure by watching this short video:
+**You are running this workshop in a LiveLabs environment. Our LiveLabs environments use a pre-configured Virtual Cloud Network (VCN), so you will not create a VCN in this workshop.** However, you can see how a VCN is created in Oracle Cloud Infrastructure by watching this short video:
 
  [](youtube:lxQYHuvipx8)
  </if>
@@ -90,15 +90,15 @@ To create a VCN on Oracle Cloud Infrastructure:
 
 Within a VCN, you have subnets. Subnets are subdivisions of a VCN. Each subnet in a VCN consists of one or more contiguous range of IPv4 addresses and optionally IPv6 addresses that don't overlap with other subnets in the VCN. Subnets act as a unit of configuration comprised of: a route table, security lists, and DHCP options. Subnets can either be public or private. We will go over each type in this task.
 
-### Public Subnets
+### **Public Subnets**
 
 When you create a subnet, by default it's considered public, which means instances in that subnet are allowed to have public IPv4 addresses and internet communication is permitted with IPv6 endpoints. In order to connect to the internet, you must use an Internet Gateway which will enable inbound and outbound internet connectivity when security rules allow it. Some use cases for using public subnets include web servers, external load balancers, public-facing bastion hosts.
 
-### Private Subnets
+### **Private Subnets**
 
 Private subnets does not allow public IP assignment to instances. Resources typically have only private IPs and are isolated from direct inbound internet access. Private subnets can still reach the internet for updates or outbound calls using a NAT Gateway (egress-only) or use a Service Gateway to access OCI services (like Object Storage) privately without traversing the public internet.
 
-### Public VS. Private Subnets
+### **Public VS. Private Subnets**
 
 | Feature | Public Subnet | Private Subnet |
 | :-------- | :------------: | :-------------: |
@@ -125,20 +125,20 @@ Once you've filled out these specifications, your subnet will be created.
 
 Think of OCI gateways as different kinds of “doors” your cloud network (VCN) can use to reach other places. Each door has a specific purpose. In this lab, we will cover Internet, NAT, and Service gateways. These gateways are not a security control by itself—routes + security rules determine what actually gets through.
 
-### Internet Gateways
+### **Internet Gateways**
 
 An Internet Gateway in OCI is like the main door from your cloud network (VCN) to the public internet. You typically use an Internet Gateway for public subnets. If your subnet’s route table says “send internet traffic to the Internet Gateway,” and your instance has a public IP, then it can talk to the internet. It can also receive traffic from the internet, but only if you allow it with security rules (NSGs/security lists) and the instance/OS permits it.
 
-### NAT Gateways
+### **NAT Gateways**
 
 A NAT Gateway in OCI is like a one-way exit door from a private neighborhood. Your instances in a private subnet don’t have public IPs, so they can’t be reached directly from the internet.
 But they still might need to go out to download updates, pull packages, or call an external API. The NAT Gateway lets them start connections out to the internet, and it “remembers” the connection so the replies can come back. People on the internet can’t start a new connection into your private instances through the NAT Gateway.
 
-### Service Gateways
+### **Service Gateways**
 
 A Service Gateway in OCI is like a private tunnel from your VCN to Oracle’s cloud services (such as Object Storage), so your traffic doesn’t go out to the public internet. Your instances (often in a private subnet) can reach OCI services using private network paths. You don’t need public IPs, an Internet Gateway, or a NAT Gateway just to talk to those OCI services. It’s mainly for private, safer access to things like Object Storage, Autonomous Database endpoints.
 
-### Comparing Gateways
+### **Comparing Gateways**
 
 | Feature | Internet | NAT | Service |
 | :-------- | :--------: | :--------: | :-------: |
@@ -148,7 +148,7 @@ A Service Gateway in OCI is like a private tunnel from your VCN to Oracle’s cl
 | Traffic Direction | ingress + egress | egress only | egress only to OCI services |
 | Target Destination | any internet destination | any internet destination | only OCI service endpoints |
 
-### Creating Gateways
+### **Creating Gateways**
 
 1. To create Gateways, navigate to the Gateways tab for your VCN. Here, you can create different Gateways to use.
 
@@ -173,7 +173,7 @@ Route rules determine the exact to send the data. You will need to set up route 
 
 You'll want to make sure that the CIDR does not overlap, otherwise routing gets weird and to make sure the target resource already exists.
 
-### Creating Route Tables and Route Rules
+### **Creating Route Tables and Route Rules**
 
 1. To create Route Tables, navigate to the Routing tab for your VCN. Click **Create Route Table**.
     ![Screenshot showing where to find route tables](./images/route-tables.png)
@@ -191,17 +191,17 @@ You'll want to make sure that the CIDR does not overlap, otherwise routing gets 
 
 ## Task 5: Security Lists & Network Security Groups
 
-### Security Lists
+### **Security Lists**
 
 If route tables determine where traffic goes, then security lists determine what traffic is allowed in or out. Security lists are firewalls attached to a subnet that checks every packet going in or out of the specified subnet. They contain rules that control ingress (inbound) and egress (outbound) traffic, destination CIDR block, Protocol specifications, Port details, and stateful(default) vs stateless. If you specify the rule as stateful, if you allow incoming traffic, you automatically allow the response back. Stateless means outbound traffic will not be automatically allowed - you must manually allow both directions.
 
 A key feature about security lists is that they are applied at a subnet level. Every instance (VM) in that subnet must follow those rules.
 
-### Network Security Groups (NSG)
+### **Network Security Groups (NSG)**
 
 Network Security Groups also control traffic allowed in and out. However, NSGs specifically target VNICs (Virtual Network Interface Card) instead of the entire subnet like security lists do, so you're able to control traffic per instance. For example, you could have 2 servers that need to follow different rules even though they’re in the same subnet. Security lists wouldn't be able to grant you that, but NSGs can. You can either attach a VNIC to an NSG either during creation or after. When creating a Network Security Group, you will also need to create rules. These rules contain the same requirements that security list rules follow: direction (ingress/egress), source/destination, protocol, port, stateful/stateless.
 
-### Security Lists VS. Network Security Groups
+### **Security Lists VS. Network Security Groups**
 
 | Feature | Security List | Network Security Group |
 | :-------- | :--------: | :--------: |
@@ -210,7 +210,7 @@ Network Security Groups also control traffic allowed in and out. However, NSGs s
 | Flexibility | limited | strong |
 | Rule Targeting | CIDR-based only | CIDR and NSG to NSG rules |
 
-### Creating Security Lists and Rules
+### **Creating Security Lists and Rules**
 
 1. To create a Security List, navigate to the Security tab for your VCN. Click **Create Security List**.
 
@@ -222,7 +222,7 @@ Network Security Groups also control traffic allowed in and out. However, NSGs s
 For ingress and egress rules, you will need to provide destination type and information, IP protocol, source and destination port range, and a description. You can also enable stateless rules.
     ![Screenshot showing how to create a security list](./images/creating-security-list-2.png)
 
-### Creating Network Security Groups and Rules
+### **Creating Network Security Groups and Rules**
 
 1. To create Network Security Groups, navigate to the Security tab for your VCN. Click **Create Network Security Group**.
 
@@ -238,7 +238,7 @@ VCns and subnets provide secure and customizable network environments, while rou
 
 ## Acknowledgements
 
-- **Author** - Rajeshwari Rai, Prasenjit Sarkar
+- **Author** - Rajeshwari Rai, Prasenjit Sarkar, Wynne Yang
 - **Contributors** - Oracle LiveLabs QA Team (Kamryn Vinson, QA Intern, Arabella Yao, Product Manager, DB Product Management), Wynne Yang
 - **Last Updated By/Date** - Wynne Yang, April 2026
 
