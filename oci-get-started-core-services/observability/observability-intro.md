@@ -27,7 +27,7 @@ In this workshop, you will:
 ### Prerequisites
 
 * An Oracle Free Tier, Always Free, Paid or LiveLabs Cloud Account
-* Access to the cloud environment and resources configured in Lab 1 
+* Access to the cloud environment and resources configured in Labs 3 (VCN), 4 (Compute instance), and 6 (Object storage bucket)
 
 ## Task 1: Create Log Group
 
@@ -39,7 +39,7 @@ Log groups are logical containers for organizing and managing logs. Logs must al
 
 2. Ensure **Compartment** Demo is selected in the left column (the compartment you created in Lab 2).
 
-    ![Compartment](images/select-compartment.png)
+    ![Compartment](images/scope-compartment.png)
    
 3. Click the **Create Log Group** button.
 
@@ -87,9 +87,7 @@ Many core cloud infrastructure services have built-in logging capabilities.  Now
 
 6. Fill in the requisite values:
 
-    - Provide a **File name prefix**:
-        ```<copy>logservicedemo</copy>```
-
+    - Provide a **File name prefix** `logservicedemo`
     - Ensure **Log group** matches `LogServiceLg` that was created earlier
     - Ensure that **Capture Filter** value matches the Capture Filter created earlier `Flowlogs-Capture-Filter`
 
@@ -134,12 +132,6 @@ Many core cloud infrastructure services have built-in logging capabilities.  Now
 4.  Click **Continue** to close the panel and return to the search landing page.
 
 5.  On the log search page, click the **Search** button and review the results in the panel below.  
-
-6.  In the **FILTER BY FIELD OR TEXT SEARCH** box enter candidate search keywords such as "ERROR" or "REJECT".  View the results in the results panel.  
-
-    ![Log Search](images/explore-logs-combined.png)
-
-7.  Click the **Search** button an review the filtered results.
 
     ![Log search dashboard](images/dash-log-search.png)
 
@@ -208,7 +200,7 @@ Log content archived to Object Storage is aggregated via batches (default every 
 
     ![Log Archive](images/log-archive-download.png)
 
-4. User your preferred log or text viewer to verify content.
+5. Use your preferred log or text viewer to verify content.
 
     ![Log Archive](images/log-viewer.png)
 
