@@ -35,12 +35,19 @@ A common use of Block Volumes is to add storage capacity to an Oracle Cloud Infr
 
 2. In the Block Volume service, click **Create Block Volume** and provide the following details:
 
+    ![](images/create-bv.png " ")
+
     <if type="freetier">
      - **Name:** BV-DEMO
-     - **Compartment:** Demo</if>
+     - **Compartment:** Demo
+     </if>
+
      <if type="livelabs">
      - **Name:** username-BV
-     - **Compartment:** username-compartment</if>
+     - **Compartment:** username-compartment
+
+     </if>
+
      - **Availability Domain:** Must be the same as the AD you chose for your instance
      - **Size**: Choose **50 GB**
      - **Backup Policy**: **Gold**
@@ -62,9 +69,8 @@ A common use of Block Volumes is to add storage capacity to an Oracle Cloud Infr
    ![](images/available.png " ")
    </if>
    <if type="livelabs">
-   ![](images/create-livelabs.png)
-   ![](images/create-livelabs-prov.png)
-   ![](images/create-livelabs-avail.png)
+   ![](images/create-bv2.png " ")
+   ![](images/create-bv-avail.png " ")
    </if>
 
 ## Task 2: Attach a Block Volume to an Instance
@@ -81,36 +87,42 @@ A common use of Block Volumes is to add storage capacity to an Oracle Cloud Infr
     <if type="freetier">
     ![Attached block volumes](images/click-attached-instances-tab.png " ")</if>
     <if type="livelabs">
-    ![Attached block volumes](images/livelabs-attach.png)</if>
+    ![Attached block volumes](images/attached-instances.png)</if>
 
 3. Click **Attach to instance**.
 
 
 4. Click **Select instance** and choose the following options:
 
-    ![](images/click-attach-instance-button.png " ")
+    ![](images/click-attach-instance-button.png)
 
-4. Choose the following options:
+5. Choose the following options:
 
      - **Attachment type:** ISCSI
      - **Access type:** Read/Write - Shareable
      - Check the required checkbox
-     - Select **Enter OCID**
+     ![Volume Details](images/livelabs-attach-block-volume.png)
+     - Select **Enter OCID**, Go to the instance to copy the OCID.
+
+        <if type="livelabs">
+   
+           ![](images/copy-instance-ocid.png)
+           ![](images/paste-instance-ocid.png)
+
+   </if>
      - **Choose Instance:** Demo
      - In the next box, paste the OCID for the instance you created in Lab 4
-
-        ![](images/copy-instance-ocid.png " ")
-
 
      - **Device Path:** Select `/dev/oracleoci/oraclevdb`
      - Click **Attach**
 
    <if type="freetier">
-   ![Volume Details](images/attach-bv.png " ")</if>
-   <if type="livelabs">
-   ![Volume Details](images/livelabs-attach-block.png)</if>
+   ![Volume Details](images/attach-bv.png)
+   </if>
+   
+    ![Attach to instance](images/attach-confirmation.png)
 
-5. Once the volume is attached, you can click the ellipsis and then click **iSCSI commands and information**.
+6. Once the volume is attached, you can click the ellipsis and then click **iSCSI commands and information**.
 
     <if type="freetier">
     ![iSCSI commands](images/livelabs-iscsi-link.png " ")</if>
@@ -118,13 +130,13 @@ A common use of Block Volumes is to add storage capacity to an Oracle Cloud Infr
     ![iSCSI commands](images/livelabs-iscsi-link.png)</if>
 
 
-6. Connect to the instance through SSH and **run the iSCSI Attach Commands**. 
+7. Connect to the instance through SSH and **run the iSCSI Attach Commands**. 
 
     Click **Copy** to copy all connect commands. Run all these commands by pasting them in the cloud shell:
 
     ![](images/iscsi-commands.png " ")
 
-7. Once the disk is attached, you can run the following commands to format the disk and mount it.
+8. Once the disk is attached, you can run the following commands to format the disk and mount it.
      ```
      # <copy>ls -l /dev/oracleoci/oraclevd*</copy>
      ```

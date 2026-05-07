@@ -113,6 +113,8 @@ In this lab, you will:
 
   ![](images/confirm.png " ")
 
+
+
 ## Acknowledgements
 
 - **Author** - Flavio Pereira, Larry Beausoleil

@@ -50,6 +50,11 @@
             "filename": "https://oracle-livelabs.github.io/common/building-blocks/blocks/adb/provision/provision-console.md"
         },
         {
+            "title": "Lab 7: Clean Up Resources",
+            "type": "freetier",
+            "filename": "./../../cleanup/clean-up.md"
+        },
+        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename": "https://livelabs.oracle.com/cdn/common/labs/need-help/need-help-livelabs.md"
